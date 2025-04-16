@@ -38,7 +38,7 @@ Os conceitos fundamentais do JavaScript, desde os primeiros passos até a constr
 ## Módulo 5 - Projeto Mão na Massa
 - [x] Clonando e conhecendo o [projeto](https://github.com/balta-io/3004)
 - [x] Criando um arquivo .js
-- [ ] Manipulação de listas de produtos
+- [x] Manipulação de listas de produtos
 - [ ] Interação com elementos da interface
 - [ ] Implementação de funcionalidades como subtotal, adição e remoção de itens
 
