@@ -27,12 +27,15 @@ const products = [
 
 function renderCartItems() {
   const cartItemsSection = document.getElementById('cart-items');
-  let subTotal = 0;
+  const subtotalElement = document.getElementById('subtotal')
+  let subtotal = 0;
+
   cartItemsSection.innerHTML = '';
 
   products.forEach(product => {
     const itemTotal = product.quantity * product.price
-    subTotal += itemTotal
+    subtotal += itemTotal
+
     const total = new Intl.NumberFormat(
       "pt-BR", {
       style: "currency",
@@ -73,6 +76,30 @@ function renderCartItems() {
     cartItemsSection.appendChild(row);
 
   })
+
+  const subtotalCurrency = new Intl.NumberFormat(
+    "pt-BR", {
+    style: "currency",
+    currency: "BRL"
+  }).format(subtotal)
+
+  subtotalElement.textContent = subtotalCurrency
+}
+
+function increaseQuantity(productId) {
+  const prod = products.find(product => product.id === productId)
+  if (prod) {
+    prod.quantity++
+    renderCartItems()
+  }
+}
+
+function decreaseQuantity(productId) {
+  const prod = products.find(product => product.id === productId)
+  if (prod) {
+    prod.quantity--
+    renderCartItems()
+  }
 }
 
 document.addEventListener('DOMContentLoaded', renderCartItems);
