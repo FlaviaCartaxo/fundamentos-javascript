@@ -27,11 +27,17 @@ const products = [
 
 function renderCartItems() {
   const cartItemsSection = document.getElementById('cart-items');
-
+  let subTotal = 0;
   cartItemsSection.innerHTML = '';
 
   products.forEach(product => {
-    const total = new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL" }).format(product.quantity * product.price)
+    const itemTotal = product.quantity * product.price
+    subTotal += itemTotal
+    const total = new Intl.NumberFormat(
+      "pt-BR", {
+      style: "currency",
+      currency: "BRL"
+    }).format(itemTotal)
     const row = document.createElement("tr")
     row.innerHTML = `
     <tr>
@@ -47,15 +53,21 @@ function renderCartItems() {
         <td>${new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL" }).format(product.price)}</td>
         <td>
           <div class="quantity">
-            <button><i class="bx bx-minus"></i></button>
+            <button onclick="decreaseQuantity(${product.id})" >
+              <i class="bx bx-minus"></i>
+            </button>
             <span>${product.quantity}</span>
-            <button><i class="bx bx-plus"></i></button>
+            <button onclick="increaseQuantity(${product.id})">
+              <i class="bx bx-plus"></i>
+            </button>
           </div>
         </td>
         <td>${total}</td>
         <td>
-          <button class="remove"><i class="bx bx-x"></i></button>
-        </td>
+          <button class="remove" onclick="removeProduct(${product.id})">
+            <i class="bx bx-x"></i>
+          </button>
+        </td> 
       </tr>
     `
     cartItemsSection.appendChild(row);
