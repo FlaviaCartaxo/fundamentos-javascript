@@ -96,8 +96,17 @@ function increaseQuantity(productId) {
 
 function decreaseQuantity(productId) {
   const prod = products.find(product => product.id === productId)
-  if (prod) {
+  if (prod && prod.quantity > 1) {
     prod.quantity--
+    renderCartItems()
+  }
+}
+
+function removeProduct(productId) {
+  const index = products.findIndex(product => product.id === productId)
+
+  if (index !== -1) {
+    products.splice(index, 1)
     renderCartItems()
   }
 }
