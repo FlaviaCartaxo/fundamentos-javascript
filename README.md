@@ -39,6 +39,5 @@ Os conceitos fundamentais do JavaScript, desde os primeiros passos até a constr
 - [x] Clonando e conhecendo o [projeto](https://github.com/balta-io/3004)
 - [x] Criando um arquivo .js
 - [x] Manipulação de listas de produtos
-- [ ] Interação com elementos da interface
-- [ ] Implementação de funcionalidades como subtotal, adição e remoção de itens
-
+- [x] Interação com elementos da interface
+- [x] Implementação de funcionalidades como subtotal, adição e remoção de itens

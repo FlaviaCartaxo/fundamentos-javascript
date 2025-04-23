@@ -26,7 +26,8 @@ const products = [
 ]
 
 function renderCartItems() {
-  const cartItemsSection = document.getElementById('cart-items');
+  const cartItemsSection = document.getElementById('cart-items')
+  const totalElement = document.getElementById('total')
   const subtotalElement = document.getElementById('subtotal')
   let subtotal = 0;
 
@@ -84,6 +85,7 @@ function renderCartItems() {
   }).format(subtotal)
 
   subtotalElement.textContent = subtotalCurrency
+  totalElement.textContent = subtotalCurrency
 }
 
 function increaseQuantity(productId) {
